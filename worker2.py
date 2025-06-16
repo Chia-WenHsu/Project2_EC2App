@@ -52,9 +52,10 @@ while sw:
 
             # 將結果存回 S3（以 test_0 -> test_0: bathtub 形式）
             image_basename = image_key.rsplit(".", 1)[0]
+            output_key = f"{image_basename}.txt"
             s3.put_object(
                 Bucket=S3_BUCKET_NAME_output,
-                Key=image_basename,
+                Key=output_key ,
                 Body=result
             )
             print(f"Saved result to S3: ({image_basename}, {result})")
