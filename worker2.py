@@ -47,7 +47,7 @@ while sw:
             print(f" Downloaded {image_key} to input.jpg")
 
             # 執行推論
-            result = subprocess.check_output(["python3", "image_classification.py", "input.jpg"] , timeout=60).decode().strip()
+            result = subprocess.check_output(["/home/ubuntu/Project2_EC2App/venv/bin/python3", "image_classification.py", "input.jpg"] , timeout=60).decode().strip()
             print(f" Inference result: {result}")
 
             # 將結果存回 S3（以 test_0 -> test_0: bathtub 形式）
