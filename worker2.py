@@ -56,7 +56,7 @@ while sw:
             s3.put_object(
                 Bucket=S3_BUCKET_NAME_output,
                 Key=output_key ,
-                Body=result
+                Body=f"({image_basename}, {result})"
             )
             print(f"Saved result to S3: ({image_basename}, {result})")
 
@@ -75,11 +75,11 @@ while sw:
             )
             print("Deleted message from queue\n")
         except subprocess.TimeoutExpired:
-            print("❌ Timeout: inference took too long. Skipping this task.")
+            print("Timeout: inference took too long. Skipping this task.")
             sw = False
 
         except Exception as e:
-            print(f"❌ Unexpected error: {str(e)}. Stopping worker.")
+            print(f"Unexpected error: {str(e)}. Stopping worker.")
             sw = False
             
         
