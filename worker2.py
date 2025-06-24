@@ -95,11 +95,11 @@ while sw:
             print("刪除處理請求\n")
             
         except subprocess.TimeoutExpired:
-            print(" Timeout: inference took too long. Skipping this task.")
+            print("Timeout: inference took too long. Skipping this task.")
             sw = False
 
         except Exception as e:
-            print(f" Unexpected error: {str(e)}. Stopping worker.")
+            print(f"Unexpected error: {str(e)}. Stopping worker.")
             sw = False
             
         
