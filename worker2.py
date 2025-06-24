@@ -74,7 +74,8 @@ while sw:
             s3.put_object(
                 Bucket=S3_BUCKET_NAME_output,
                 Key=daily_key,
-                Body=updated_content
+                Body=updated_content,
+                ContentType='text/plain'
             )
 
             print(f"存取結果到 S3: ({image_basename}, {label})")
